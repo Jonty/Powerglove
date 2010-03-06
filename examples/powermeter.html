@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Live power meter</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+        <script>
+            function update() {
+                $.getJSON("http://192.168.0.1:8080/json?jsonp=?&back=60",
+                    function (data) {
+                        $('div').text(data['data'][0]['watts']);
+                    }
+                );
+
+                setTimeout('update()', 30000); // 30 sec
+            }
+        </script>
+    </head>
+</html>
+<body onload="update()">
+    <center>
+        <br><br>
+        Current Watt Usage
+        <h1><div id="watts">Loading...</div></h1>
+    </center>
+</body>
+</html>
+</html>

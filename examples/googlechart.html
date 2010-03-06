@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Google charts example</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+			<script>
+				function update() {
+                    $.getJSON("http://192.168.0.1:8080/json?jsonp=?&back=3600",
+                        function (data) {
+                            chartData = ""
+                            for (i = 0; i < data['data'].length; i++) {
+                                if (data['data'][i]['watts'] == 0) {
+                                    continue;
+                                }
+
+                                chartData += Math.floor(data['data'][i]['watts']);
+
+                                if (i+2 < data['data'].length) {
+                                    chartData += ',';
+                                }
+                            }
+                            
+                            $('img').attr('src', 'http://chart.apis.google.com/chart?cht=lc&chd=t:' + chartData + '&chs=1000x300&&chds=0,1500');
+                        }
+                    );
+				}
+			</script>
+    </head>
+</head>
+<body onload="update()">
+	<center>
+		<br><br>
+    	Last Hour
+		<h1><img src=""></h1>
+	</center>
+</body>
+</html>
+</html>
