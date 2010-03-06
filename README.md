@@ -1,9 +1,9 @@
 Powerglove
 =============
 
-Powerglove is a logging/server daemon that wraps up the data output by the CurrentCost power monitoring 
-devices in a lovely HTTP API. So lovely it's practically made of cotton wool and kittens. Kittens that 
-died so you can save money on your energy bill. I hope you're happy now.
+Powerglove is a daemon that wraps up the data output by the CurrentCost power monitoring  devices in a 
+lovely HTTP API. So lovely it's practically made of cotton wool and kittens. Kittens that died so you 
+can save money on your energy bill. I hope you're happy now.
 
 In it's simplest form it obediently slurps in the data the CurrentCost meter is shoving down the serial
 cable and logs it in an RRD file for you to do as you please. But it does a lot more.
