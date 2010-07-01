@@ -23,7 +23,7 @@ class JsonRenderer (Renderer.Renderer):
                 second = 0;
 
             dataStrings.append(
-                "{timestamp: %d, %s: %f, %s: %f}" % 
+                "{\"timestamp\": %d, \"%s\": %f, \"%s\": %f}" % 
                 (timestamp, titles[0], first, titles[1], second)
             )
 
@@ -36,7 +36,7 @@ class JsonRenderer (Renderer.Renderer):
             if 'jsonp' in params:
                 print "%s(" % (params['jsonp'][0])
 
-            print "{start: %d, end: %d, step: %d, data: [\n%s\n]}" % (metadata[0], metadata[1], metadata[2], ',\n'.join(dataStrings))
+            print "{\"start\": %d, \"end\": %d, \"step\": %d, \"data\": [\n%s\n]}" % (metadata[0], metadata[1], metadata[2], ',\n'.join(dataStrings))
 
             if 'jsonp' in params:
                 print ');'
